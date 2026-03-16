@@ -1,18 +1,19 @@
 class Solution {
-    public int gcd(int x, int y) {
-        if (y == 0) {
-            return x;
-        } else {
-            return gcd(y, x % y);
-        }
-    }
-    
     public String gcdOfStrings(String str1, String str2) {
+        int len1 = str1.length(), len2 = str2.length();
         if (!(str1 + str2).equals(str2 + str1)) {
             return "";
         }
         
-        int gcdLength = gcd(str1.length(), str2.length());
-        return str1.substring(0, gcdLength);
+        String ret = str1.substring(0, gcd(len1, len2));
+        return ret;
+    }
+
+    public int gcd(int num1, int num2) {
+        if (num2 == 0) {
+            return num1;
+        } else {
+            return gcd(num2, num1 % num2);
+        }
     }
 }
