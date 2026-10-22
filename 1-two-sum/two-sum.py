@@ -1,6 +1,12 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
+        numsDict = {}
+
         for i in range(len(nums)):
-            pair = target - nums[i]
-            if pair in nums and i != nums.index(pair):
-                return [i, nums.index(pair)]
+            num = nums[i]
+            pair = target - num
+
+            if pair in numsDict:
+                return [i, numsDict[pair]]
+            
+            numsDict[num] = i
